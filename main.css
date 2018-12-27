@@ -1,0 +1,296 @@
+
+body {
+    margin: 0;
+	font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+
+#login_feedback, #post_feedback, .direct_post, #direct_messages, #direct_loading, #stream_loading {
+	display:none;
+}
+
+.header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    top: 0;
+    width: 100%;
+}
+
+.header li {
+    float: left;
+}
+
+.header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.header li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.header .active {
+    background-color: #4CAF50;
+}
+div.post, div.direct_post {
+	clear:both;
+}
+.post textarea, .direct_post textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+    background-color: #45a049;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    border: 3px solid #555;
+}
+
+.content {
+	width: 80%;
+	height:100%;
+	margin: auto;
+}
+
+.split_content {
+	width: 100%;
+	height: 100%;
+}
+
+.login {
+	width:50%;
+	margin:auto;
+}
+
+.about {
+    width:80%;
+    margin:auto;
+    text-align: center;
+}
+
+.about video {
+    width: 100%;
+}
+
+div.post_options, div.message_content {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.recieved, div.self {
+	margin-bottom: 25px;
+	clear:both;
+	width:80%
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.self {
+	float: right;
+}
+
+.recieved {
+	float: left;
+}
+
+.recieved .post_options {
+float:left;
+width:20%;
+}
+
+.recieved .message_content {
+	float:left;
+	width:80%;
+}
+
+.self .post_options {
+float:right;
+width:20%;
+}
+
+.self .message_content {
+	float:right;
+	width:80%;
+}
+
+.message_margin {
+	padding:10px;
+}
+
+
+.post_options ul, .contacts_sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post_options {
+	background-color: #f1f1f1;
+}
+
+.post_options li a, .contacts_sidebar li a {
+    display: block;
+    color: #000;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+.post_options li a:hover, .contacts_sidebar li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+.post_options a.active, .contacts_sidebar a.active {
+    background-color: #4CAF50;
+    color: white;
+	overflow: auto;
+}
+
+.message_content img, .message_content video  {
+	max-height:100%;
+	max-width:100%;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.contacts {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.user_row, .sidebar_text {
+	padding:10px;
+}
+
+.contacts_sidebar {
+	float: none;
+	height: 100%;
+	width: 20%;
+	overflow: auto;
+	position: absolute;
+	background-color: #f1f1f1;
+}
+
+.direct_content {
+	float: none;
+	height: 100%;
+	width: 80%;
+	overflow: auto;
+	position: absolute;
+	left: auto;
+	right: 0px;
+}
+
+.direct_container {
+	width:80%;
+	margin:auto;
+	margin-top:10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+span.spoiler:not(:hover) {
+background-color: black;
+color: black;
+}
+
+#register_form input[type=submit], #login_form input[type=submit] {
+	width: 100%;
+}
