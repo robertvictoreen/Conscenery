@@ -1,5 +1,7 @@
 # Conscenery.com
 
+![Demo](demo.png)
+
 This project was accomplished outside of school on my own time, and it was fascinating to learn the true power of PHP and MySQL, as well as the security precautions to consider when allowing users to submit files or even plain text.
 
 The concept for the website was based on the idea of a simple, lightweight messaging and sharing service without worries of an extensive digital history as each and every message has a set expiry date.
