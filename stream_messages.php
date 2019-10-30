@@ -1,8 +1,8 @@
- <?php 
+ <?php
  
- require_once("session.php");
- 
- if ($loggedout == 0){
+ if ($loggedout == 1){
+    die("Logged out");
+ }
 	 
 function time2str($ts)
 {
@@ -205,7 +205,6 @@ if ($result = mysqli_query($db, $query)) {
     /* free result set */
     mysqli_free_result($result);
 	
-}
 }
   
    ?>
