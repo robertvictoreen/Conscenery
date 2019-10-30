@@ -1,6 +1,3 @@
-<?php
-   
-?>
 <!doctype html>
 <html>
 <head>
@@ -42,7 +39,7 @@ robert.victoreen.co
   <li class="loggedin"><a id="stream_page"<?php if ($loggedout==0){?> class="active"<?php } ?> href="#">Stream</a></li>
       <li class="loggedin"><a id="contacts_page" href="#">Contacts</a></li>
     <!--  <li><a id="groups_page" href="#">Groups</a></li>-->
-      <li style="float:right" class="loggedout"><a href="//robert.victoreen.co/" target="_blank">Created by Robert</a></li>
+      <li style="float:right" class="loggedout"><a href="https://www.linkedin.com/in/robertvictoreen/" target="_blank">Created by Robert</a></li>
       <li style="float:right" class="loggedin"><a href="logout.php">Logout</a></li>
       <li style="float:right" class="loggedin"><a id="profile_page" href="#"><?php if (isset($login_session)) echo $login_session; ?></a></li>
 </ul>
@@ -52,9 +49,9 @@ robert.victoreen.co
     <h1>Welcome to Conscenery!</h1>
     <p>Conscenery is a simple, lightweight messaging and sharing service.<p>
     <p>Users set an expiry date for each and every message to prevent an extensive digital history.</p>
-    <h2>Video Demonstration</h2>
-    <p><video controls src="conscenery.mp4"></video></p>
     <input id="get_started" type="button" value="Get Started" />
+    <h2>Video Demonstration</h2>
+    <p><iframe src="https://drive.google.com/file/d/1tkVcJ23TGjfQLTD2U03F57XfrgldkcDE/preview" width="640" height="480"></iframe></p>
     </div>
     <div class="login">
     <h1>Login</h1>
@@ -68,6 +65,7 @@ robert.victoreen.co
     <p id="login_feedback"></p>
     <p>
       <input type="submit" name="submit" value="Login" />
+      <input type="button" name="demo_login" value="Demo Account Login" />
     </p>
     </form>
     <h1>New User?</h1>
@@ -85,6 +83,7 @@ robert.victoreen.co
     <p id="register_feedback"></p>
     <p>
       <input type="submit" name="submit" value="Register" />
+      <input type="button" name="demo_register" value="Generate Demo Account" />
     </p>
     </form>
     </div>
@@ -112,11 +111,11 @@ robert.victoreen.co
         <p>
           <input type="text" name="text" placeholder="Text"/>
         </p>
-        <p class="tooltip">
+        <!--<p class="tooltip">
           <label for="upload">Media:</label>
           <input type="file" name="upload"/>
            <span class="tooltiptext">Up to 50MB: jpg, png, gif, webm, zip, pdf</span>
-        </p><p class="tooltip"><label for="time_selection">Time Limit:</label>
+        </p>--><p class="tooltip"><label for="time_selection">Time Limit:</label>
       <select name="time_selection">
         <option value="1">30mins</option>
         <option value="2">1 hour</option>
@@ -125,7 +124,7 @@ robert.victoreen.co
         <option value="5">24 hours</option>
         <option selected="selected" value="6">48 hours</option>
       </select>
-      <span class="tooltiptext">All posts have an expiry date, to ensure relevancy and limit stalkers.</span></p>
+      <span class="tooltiptext">All posts have an expiry date, to ensure relevancy.</span></p>
       <p class="post_feedback"></p>
         <p>
         <img id="stream_loading" src="ajax-loader.gif" alt="Loading...">
@@ -142,13 +141,13 @@ robert.victoreen.co
   <div id="direct">
 <div class="contacts_sidebar">
 <ul>
-  <li><a class="active" href="#" target=".network">Pending</a></li>
+  <li><a class="active" href="#" target=".network">Manage Contacts</a></li>
 </ul>
 </div>
 
 <div class="direct_content">
 <div class="direct_container">
-<h1 class="direct_title">Pending</h1>
+<h1 class="direct_title">Manage Contacts</h1>
 <div id="direct_messages"></div>
 <div class="direct_post">
 <p><!--<a id="direct_refresh" href="#">Refresh messages</a>--></p>
@@ -157,10 +156,10 @@ robert.victoreen.co
         <p>
           <input type="text" name="text" placeholder="Text"/>
         </p>
-        <p>
+        <!--<p>
           <label for="upload">Media:</label>
           <input type="file" name="upload"/>
-        </p><p class="tooltip"><label for="time_selection">Time Limit:</label>
+        </p>--><p class="tooltip"><label for="time_selection">Time Limit:</label>
       <select name="time_selection">
         <option value="1">30mins</option>
         <option value="2">1 hour</option>
@@ -169,7 +168,7 @@ robert.victoreen.co
         <option value="5">24 hours</option>
         <option selected="selected" value="6">48 hours</option>
       </select>
-      <span class="tooltiptext">All posts have an expiry date, to ensure relevancy and limit stalkers.</span></p>
+      <span class="tooltiptext">All posts have an expiry date to ensure relevancy.</span></p>
       <p class="post_feedback"></p>
         <p>
         <img id="direct_loading" src="ajax-loader.gif" alt="Loading...">

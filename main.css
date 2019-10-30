@@ -290,7 +290,3 @@ span.spoiler:not(:hover) {
 background-color: black;
 color: black;
 }
-
-#register_form input[type=submit], #login_form input[type=submit] {
-	width: 100%;
-}
