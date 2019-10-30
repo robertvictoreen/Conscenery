@@ -34,6 +34,9 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
     case '/contact.php':
         require 'contact.php';
         break;
+    case '/connect.php':
+        require 'connect.php';
+        break;
     case '/delete.php':
         require 'delete.php';
         break;
