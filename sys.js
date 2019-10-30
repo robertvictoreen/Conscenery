@@ -19,9 +19,30 @@ function refreshContacts() {
     }
 }
 
+function randomString(length) {
+	var chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+    return result;
+}
+
 $(document).ready(function(){
 
     setInterval(function(){ refreshMessages();refreshDirect();refreshContacts();}, 5000);
+
+    $("input[name=demo_login]").click(function(e){
+    	$("#login_form").find("input[name=password]").val("Demo");
+		$("#login_form").find("input[name=username]").val("Demo");
+		$("#login_form").submit();
+    });
+
+	$("input[name=demo_register]").click(function(e){
+		var randomUsername = randomString(6);
+		var randomEmail = randomUsername + "@example.com";
+    	$("#register_form").find("input[name=username]").val(randomUsername);
+    	$("#register_form").find("input[name=email]").val(randomEmail);
+		$("#register_form").find("input[name=password]").val(randomUsername).attr("type", "text");
+    });
 
 	$("#contact_form").submit(function(e){
 		e.preventDefault();
