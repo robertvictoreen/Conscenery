@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--
+  Conscenery — modern port of Robert Victoreen's 2018 original (see ../legacy-php/).
+  Rebuilt with plain HTML/CSS/JS + fetch; the 2018 version used jQuery 3.1.1.
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conscenery</title>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <ul>
+      <li class="loggedout"><a id="about_page" href="#" class="active">About</a></li>
+      <li class="loggedout"><a id="login_page" href="#">Conscenery</a></li>
+      <li class="loggedin"><a id="stream_page" href="#" class="active">Stream</a></li>
+      <li class="loggedin"><a id="contacts_page" href="#">Contacts</a></li>
+      <li style="float:right" class="loggedout"><a href="https://www.linkedin.com/in/robertvictoreen/" target="_blank" rel="noopener">Created by Robert</a></li>
+      <li style="float:right" class="loggedin"><a id="logout_link" href="#">Logout</a></li>
+      <li style="float:right" class="loggedin"><a id="profile_page" href="#"></a></li>
+    </ul>
+  </div>
+  <div class="content">
+    <div class="about" id="about_view">
+      <h1>Welcome to Conscenery!</h1>
+      <p>Conscenery is a simple, lightweight messaging and sharing service.</p>
+      <p>Users set an expiry date for each and every message to prevent an extensive digital history.</p>
+      <input id="get_started" type="button" value="Get Started">
+      <h2>Demo</h2>
+      <p><img src="/demo.png" alt="Conscenery demo screenshot" class="demo-img"></p>
+      <p class="muted">Screenshot from the original repo. In this modern port, the About page
+      shows it from <code>legacy-php/demo.png</code> — no duplicate copy.</p>
+    </div>
+
+    <div class="login" id="login_view" style="display:none">
+      <h1>Login</h1>
+      <form id="login_form">
+        <p><input type="text" name="username" placeholder="Username" autocomplete="username"></p>
+        <p><input type="password" name="password" placeholder="Password" autocomplete="current-password"></p>
+        <p id="login_feedback" class="feedback"></p>
+        <p>
+          <input type="submit" value="Login">
+          <input type="button" id="demo_login" value="Demo Account Login">
+        </p>
+      </form>
+      <h1>New User?</h1>
+      <h3>3 Step Registration</h3>
+      <form id="register_form">
+        <p><input type="text" name="username" placeholder="Username" autocomplete="username"></p>
+        <p><input type="text" name="email" placeholder="Email" autocomplete="email"></p>
+        <p><input type="password" name="password" placeholder="Password" autocomplete="new-password"></p>
+        <p id="register_feedback" class="feedback"></p>
+        <p>
+          <input type="submit" value="Register">
+          <input type="button" id="demo_register" value="Generate Demo Account">
+        </p>
+      </form>
+    </div>
+
+    <div class="home" id="stream_home" style="display:none">
+      <h1 id="head_title">Stream</h1>
+      <p></p>
+    </div>
+    <div class="messages" id="messages" style="display:none"></div>
+
+    <div class="post" id="stream_post" style="display:none">
+      <h3>New Message to Stream (All Contacts)</h3>
+      <form id="stream_form">
+        <p><input type="text" name="text" placeholder="Text" maxlength="500"></p>
+        <p class="tooltip"><label for="time_selection">Time Limit:</label>
+          <select name="time_selection" id="time_selection">
+            <option value="1">30mins</option>
+            <option value="2">1 hour</option>
+            <option value="3">6 hours</option>
+            <option value="4">12 hours</option>
+            <option value="5">24 hours</option>
+            <option value="6" selected>48 hours</option>
+          </select>
+          <span class="tooltiptext">All posts have an expiry date, to ensure relevancy.</span></p>
+        <p class="feedback post_feedback"></p>
+        <p><input type="submit" value="Post"></p>
+      </form>
+    </div>
+
+    <div class="split_content" id="direct_view" style="display:none">
+      <div class="contacts_sidebar">
+        <ul id="contacts_sidebar_list">
+          <li><a href="#" id="manage_contacts_link" class="active">Manage Contacts</a></li>
+        </ul>
+      </div>
+      <div class="direct_content">
+        <div class="direct_container">
+          <h1 class="direct_title" id="direct_title">Manage Contacts</h1>
+          <div id="direct_messages"></div>
+          <div class="direct_post" id="direct_post" style="display:none">
+            <h3>New Message</h3>
+            <form id="direct_form">
+              <p><input type="text" name="text" placeholder="Text" maxlength="500"></p>
+              <p class="tooltip"><label>Time Limit:</label>
+                <select name="time_selection">
+                  <option value="1">30mins</option>
+                  <option value="2">1 hour</option>
+                  <option value="3">6 hours</option>
+                  <option value="4">12 hours</option>
+                  <option value="5">24 hours</option>
+                  <option value="6" selected>48 hours</option>
+                </select>
+                <span class="tooltiptext">All posts have an expiry date to ensure relevancy.</span></p>
+              <p class="feedback post_feedback"></p>
+              <p><input type="submit" value="Post"></p>
+            </form>
+          </div>
+          <div class="network" id="network_view">
+            <div class="contacts" id="pending_contacts"></div>
+            <div>
+              <h1>Add Contact</h1>
+              <form id="contact_form">
+                <p><input type="text" name="user" placeholder="Username"></p>
+                <p id="contact_feedback" class="feedback"></p>
+                <p><input type="submit" value="Send request"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="login" id="profile_view" style="display:none">
+      <h1>Profile</h1>
+      <p id="profile_info"></p>
+      <h3>Change Password</h3>
+      <form id="change_password_form">
+        <p><input type="password" name="currentPassword" placeholder="Current password" autocomplete="current-password"></p>
+        <p><input type="password" name="newPassword" placeholder="New password" autocomplete="new-password"></p>
+        <p id="change_password_feedback" class="feedback"></p>
+        <p><input type="submit" value="Change password"></p>
+      </form>
+      <p class="muted">Passwords are stored scrypt-hashed — never in plain text.
+      Changing your password logs you out everywhere.</p>
+    </div>
+  </div>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>

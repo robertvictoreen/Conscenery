@@ -1,0 +1,1 @@
+{"description":"Modern port of Conscenery (2018) — a lightweight messaging/sharing service where every message has an expiry date. Node + SQLite, zero dependencies.","engines":{"node":">=22.5"},"license":"MIT","name":"conscenery-modern","private":true,"scripts":{"dev":"node server.js","start":"node server.js"},"type":"module","version":"2.0.0"}

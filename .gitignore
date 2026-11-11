@@ -1,0 +1,10 @@
+# Conscenery monorepo — runtime artefacts, never committed
+node_modules/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+uploads/
+.env
+.env.*
+.DS_Store

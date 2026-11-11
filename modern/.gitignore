@@ -1,0 +1,16 @@
+# Runtime data — never commit the live database or sessions
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Uploads (the original stored uploads in ./uploads/; this port is text-only,
+# but if uploads are ever re-enabled they must stay out of git)
+uploads/
+
+# Local environment / secrets
+.env
+.env.*
+
+# Dependencies (there are none by design, but keep this for the future)
+node_modules/
